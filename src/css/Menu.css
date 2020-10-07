@@ -1,0 +1,27 @@
+@font-face {
+  font-family: "Gotham";
+  src: local('Gotham'), url(../assets/fonts/GothamBookRegular.otf) format('otf');
+}
+
+.menu-area {
+  display: flex;
+  justify-content: space-between;
+}
+
+.action-area p {
+  text-shadow: 0 0 16px rgba(0, 0, 0, 0.16);
+  font-family: "Gotham";
+  font-size: 35px;
+  font-weight: 500;
+}
+
+.action-area .quit-section {
+  display: flex;
+  align-items: center;
+}
+
+.action-area .quit-section img {
+  width: 60px;
+  height: 60px;
+  margin-left: -13px;
+}
