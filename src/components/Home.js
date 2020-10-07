@@ -5,6 +5,14 @@ import playIcon from "../assets/images/icon-awesome-play.svg";
 import "../css/Home.css";
 
 const Home = ({ userName, setUserName, level, setLevel, setGameStatus }) => {
+  const startGame = () => {
+    if (userName.length !== 0) {
+      setGameStatus("PLAYING");
+    } else {
+      alert("Please enter your name");
+    }
+  };
+
   return (
     <div className="home-container">
       <section className="top-area">
@@ -30,7 +38,7 @@ const Home = ({ userName, setUserName, level, setLevel, setGameStatus }) => {
       </section>
       <section className="home-start-game-area">
         <img className="play-icon" src={playIcon} alt="Play Button" />
-        <div className="start-game" onClick={() => setGameStatus("PLAYING")}>
+        <div className="start-game" onClick={() => startGame()}>
           START GAME
         </div>
       </section>
