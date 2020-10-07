@@ -4,7 +4,15 @@ import keyboardIcon from "../assets/images/keyboard-icon.svg";
 import playIcon from "../assets/images/icon-awesome-play.svg";
 import "../css/Home.css";
 
-const Home = () => {
+const Home = ({ userName, setUserName, level, setLevel, setGameStatus }) => {
+  const startGame = () => {
+    if (userName.length !== 0) {
+      setGameStatus("PLAYING");
+    } else {
+      alert("Please enter your name");
+    }
+  };
+
   return (
     <div className="home-container">
       <section className="top-area">
@@ -15,12 +23,24 @@ const Home = () => {
         </section>
       </section>
       <section className="home-user-input-area">
-        <input type="text" placeholder={"TYPE YOUR NAME"} />
-        <DropDown className="dropdown" options={["Easy", "Medium", "Hard"]} />
+        <input
+          type="text"
+          placeholder={"TYPE YOUR NAME"}
+          value={userName}
+          onChange={(e) => setUserName(e.target.value)}
+        />
+        <DropDown
+          className="dropdown"
+          options={["Easy", "Medium", "Hard"]}
+          level={level}
+          setLevel={setLevel}
+        />
       </section>
       <section className="home-start-game-area">
         <img className="play-icon" src={playIcon} alt="Play Button" />
-        <div className="start-game">START GAME</div>
+        <div className="start-game" onClick={() => startGame()}>
+          START GAME
+        </div>
       </section>
     </div>
   );

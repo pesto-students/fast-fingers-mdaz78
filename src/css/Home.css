@@ -134,6 +134,7 @@
 }
 
 .home-start-game-area .start-game {
+  cursor: pointer;
   display: block;
   width: 307px;
   height: 48px;
