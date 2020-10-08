@@ -3,6 +3,7 @@ import Header from "./Header";
 import Menu from "./Menu";
 import GameArea from "./GameArea";
 import "../css/GameContainer.css";
+import { getGameCount, saveGameObj } from "../utils/utils";
 
 const GamePage = ({
   userName,
@@ -12,10 +13,13 @@ const GamePage = ({
   setGameStatus,
   score,
   setScore,
+  gameCount,
+  setGameCount,
 }) => {
   let middleSection;
 
   if (gameStatus === "STOPPED") {
+    saveGameObj(getGameCount() + 1, score);
     middleSection = null;
   } else {
     middleSection = (
@@ -25,6 +29,8 @@ const GamePage = ({
         setGameStatus={setGameStatus}
         score={score}
         setScore={setScore}
+        gameCount={gameCount}
+        setGameCount={setGameCount}
       />
     );
   }

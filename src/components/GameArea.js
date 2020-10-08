@@ -5,7 +5,15 @@ import { getDifficultyFactor, getLevel } from "../utils/utils";
 import ScoreBoard from "./ScoreBoard";
 import "../css/GameArea.css";
 
-const GameArea = ({ level, setLevel, setGameStatus, score, setScore }) => {
+const GameArea = ({
+  level,
+  setLevel,
+  setGameStatus,
+  score,
+  setScore,
+  gameCount,
+  setGameCount,
+}) => {
   const [randomWord, setRandomWord] = useState(fetchRandomWordForLevel(level));
   const [typedWord, setTypedWord] = useState("");
   const [difficultyFactor, setDifficultyFactor] = useState(
@@ -67,6 +75,8 @@ const GameArea = ({ level, setLevel, setGameStatus, score, setScore }) => {
           setGameStatus={setGameStatus}
           score={score}
           setScore={setScore}
+          gameCount={gameCount}
+          setGameCount={setGameCount}
         />
         <section className="play-area">
           <div className="random-word">{getRandomWord()}</div>

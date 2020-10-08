@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { getTimerValue } from "../utils/utils";
+import { getTimerValue, saveGameCount } from "../utils/utils";
 import "../css/Timer.css";
 
 const Timer = ({
@@ -8,6 +8,8 @@ const Timer = ({
   setGameStatus,
   score,
   setScore,
+  setGameCount,
+  gameCount,
 }) => {
   const [timerValue, setTimerValue] = useState(
     getTimerValue(randomWord.length, difficultyFactor) * 1000

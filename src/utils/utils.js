@@ -25,4 +25,34 @@ const getTimerValue = (wordLength, difficultyFactor) => {
   return Math.ceil(wordLength / difficultyFactor);
 };
 
-export { getDifficultyFactor, getTimerValue, getLevel };
+const getGameCount = () => {
+  const val = localStorage.getItem("gamesObj");
+  return val ? JSON.parse(val).length : 0;
+};
+
+const saveGameObj = (gameCount, score) => {
+  let games = JSON.parse(localStorage.getItem("gamesObj"));
+  if (games) {
+    games.push({
+      gameCount,
+      score,
+    });
+  } else {
+    games = [
+      {
+        gameCount,
+        score,
+      },
+    ];
+  }
+
+  localStorage.setItem("gamesObj", JSON.stringify(games));
+};
+
+export {
+  getDifficultyFactor,
+  getTimerValue,
+  getLevel,
+  getGameCount,
+  saveGameObj,
+};
