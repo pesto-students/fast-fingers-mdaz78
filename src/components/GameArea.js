@@ -1,13 +1,24 @@
 import React, { useState, useEffect } from "react";
 import Timer from "./Timer";
 import { fetchRandomWordForLevel } from "../utils/dictionary";
-import { getDifficultyFactor, getTimerValue } from "../utils/utils";
+import { getDifficultyFactor, getLevel } from "../utils/utils";
 import ScoreBoard from "./ScoreBoard";
 import "../css/GameArea.css";
 
-const GameArea = ({ level, setLevel }) => {
+const GameArea = ({
+  level,
+  setLevel,
+  setGameStatus,
+  score,
+  setScore,
+  gameCount,
+  setGameCount,
+}) => {
   const [randomWord, setRandomWord] = useState(fetchRandomWordForLevel(level));
   const [typedWord, setTypedWord] = useState("");
+  const [difficultyFactor, setDifficultyFactor] = useState(
+    getDifficultyFactor(level)
+  );
 
   useEffect(() => {
     removeClasses();
@@ -21,6 +32,13 @@ const GameArea = ({ level, setLevel }) => {
         span.classList.add("blue");
       }
     });
+
+    if (typedWord === randomWord) {
+      setTypedWord("");
+      setRandomWord(fetchRandomWordForLevel(level));
+      setDifficultyFactor(difficultyFactor + 0.01);
+      setLevel(getLevel(difficultyFactor));
+    }
 
     if (typedWord.length === randomWord.length) {
       setTypedWord("");
@@ -51,7 +69,15 @@ const GameArea = ({ level, setLevel }) => {
     <div className="game-area-container">
       <ScoreBoard />
       <div>
-        <Timer level={level} />
+        <Timer
+          difficultyFactor={difficultyFactor}
+          randomWord={randomWord}
+          setGameStatus={setGameStatus}
+          score={score}
+          setScore={setScore}
+          gameCount={gameCount}
+          setGameCount={setGameCount}
+        />
         <section className="play-area">
           <div className="random-word">{getRandomWord()}</div>
           <input

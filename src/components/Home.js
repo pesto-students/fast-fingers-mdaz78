@@ -7,8 +7,17 @@ import {
   areDictionariesAddedToLocalStorage,
   loadDictionariesToLocalStorage,
 } from "../utils/dictionary";
+import { saveGameCount } from "../utils/utils";
 
-const Home = ({ userName, setUserName, level, setLevel, setGameStatus }) => {
+const Home = ({
+  userName,
+  setUserName,
+  level,
+  setLevel,
+  setGameStatus,
+  gameCount,
+  setGameCount,
+}) => {
   const startGame = () => {
     if (userName.length !== 0) {
       if (!areDictionariesAddedToLocalStorage()) {
