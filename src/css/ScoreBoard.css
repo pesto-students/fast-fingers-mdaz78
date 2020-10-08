@@ -1,0 +1,10 @@
+:root {
+  --light-red: #ff5155;
+}
+
+.scoreboard-container {
+  width: 246px;
+  height: 493px;
+  border-radius: 15px;
+  border: solid 3px var(--light-red);
+}

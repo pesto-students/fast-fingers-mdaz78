@@ -1,4 +1,4 @@
-import words from "./data/dictionary.json";
+import words from "../data/dictionary.json";
 
 function loadDictionariesToLocalStorage() {
   const {

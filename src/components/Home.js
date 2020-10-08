@@ -6,7 +6,7 @@ import "../css/Home.css";
 import {
   areDictionariesAddedToLocalStorage,
   loadDictionariesToLocalStorage,
-} from "../utilities";
+} from "../utils/utilities";
 
 const Home = ({ userName, setUserName, level, setLevel, setGameStatus }) => {
   const startGame = () => {
