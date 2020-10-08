@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Timer from "./Timer";
 import { fetchRandomWordForLevel } from "../utilities";
+import ScoreBoard from "./ScoreBoard";
 import "../css/GameArea.css";
 
 const GameArea = ({ level, setLevel }) => {
@@ -46,17 +47,21 @@ const GameArea = ({ level, setLevel }) => {
   };
 
   return (
-    <div>
-      <Timer level={level} />
-      <section className="play-area">
-        <div className="random-word">{getRandomWord()}</div>
-        <input
-          type="text"
-          value={typedWord}
-          onChange={(e) => setTypedWord(e.target.value.toUpperCase())}
-          id="input-box"
-        />
-      </section>
+    <div className="game-area-container">
+      <ScoreBoard />
+      <div>
+        <Timer level={level} />
+        <section className="play-area">
+          <div className="random-word">{getRandomWord()}</div>
+          <input
+            type="text"
+            value={typedWord}
+            onChange={(e) => setTypedWord(e.target.value.toUpperCase())}
+            id="input-box"
+          />
+        </section>
+      </div>
+      <div />
     </div>
   );
 };
