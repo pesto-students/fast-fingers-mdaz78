@@ -49,10 +49,21 @@ const saveGameObj = (gameCount, score) => {
   localStorage.setItem("gamesObj", JSON.stringify(games));
 };
 
+const getListOfScores = () => {
+  const val = localStorage.getItem("gamesObj");
+  return val ? JSON.parse(val) : [];
+};
+
+const getHighestScoreObj = () => {
+  const scores = getListOfScores();
+  return scores;
+};
+
 export {
   getDifficultyFactor,
   getTimerValue,
   getLevel,
   getGameCount,
   saveGameObj,
+  getListOfScores,
 };
