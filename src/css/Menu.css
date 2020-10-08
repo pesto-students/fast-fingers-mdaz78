@@ -21,10 +21,16 @@
 .action-area .quit-section {
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 
 .action-area .quit-section img {
   width: 60px;
   height: 60px;
   margin-left: -13px;
+  cursor: pointer;
+}
+
+.go-home-area {
+  cursor: pointer;
 }

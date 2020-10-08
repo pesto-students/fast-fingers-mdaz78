@@ -7,7 +7,9 @@ const ScoreBoard = () => {
   const gamesObj = getListOfScores();
   const scoresHTML = gamesObj.map(({ gameCount, score }) => {
     return (
-      <div className="scores">{`Game ${gameCount} : ${score / 1000}`}</div>
+      <div className="scores" key={gameCount}>{`Game ${gameCount} : ${
+        score / 1000
+      }`}</div>
     );
   });
 
