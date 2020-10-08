@@ -7,6 +7,7 @@ function App() {
   const [gameStatus, setGameStatus] = useState("STARTING");
   const [userName, setUserName] = useState("");
   const [level, setLevel] = useState("Easy");
+  const [score, setScore] = useState(0);
 
   let componentToRender;
 
@@ -28,6 +29,8 @@ function App() {
         setLevel={setLevel}
         gameStatus={gameStatus}
         setGameStatus={setGameStatus}
+        score={score}
+        setScore={setScore}
       />
     );
   }

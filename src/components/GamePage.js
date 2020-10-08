@@ -4,7 +4,15 @@ import Menu from "./Menu";
 import GameArea from "./GameArea";
 import "../css/GameContainer.css";
 
-const GamePage = ({ userName, level, setLevel, gameStatus, setGameStatus }) => {
+const GamePage = ({
+  userName,
+  level,
+  setLevel,
+  gameStatus,
+  setGameStatus,
+  score,
+  setScore,
+}) => {
   let middleSection;
 
   if (gameStatus === "STOPPED") {
@@ -15,6 +23,8 @@ const GamePage = ({ userName, level, setLevel, gameStatus, setGameStatus }) => {
         level={level}
         setLevel={setLevel}
         setGameStatus={setGameStatus}
+        score={score}
+        setScore={setScore}
       />
     );
   }

@@ -2,10 +2,19 @@ import React, { useEffect, useRef, useState } from "react";
 import { getTimerValue } from "../utils/utils";
 import "../css/Timer.css";
 
-const Timer = ({ difficultyFactor, randomWord, setGameStatus }) => {
+const Timer = ({
+  difficultyFactor,
+  randomWord,
+  setGameStatus,
+  score,
+  setScore,
+}) => {
   const [timerValue, setTimerValue] = useState(
     getTimerValue(randomWord.length, difficultyFactor) * 1000
   );
+
+  const totalDuration =
+    getTimerValue(randomWord.length, difficultyFactor) * 1000;
 
   const timerId = useRef();
   const timer = () => {
@@ -26,6 +35,7 @@ const Timer = ({ difficultyFactor, randomWord, setGameStatus }) => {
   }, [timerValue]);
 
   useEffect(() => {
+    setScore(score + (totalDuration - timerValue));
     setTimerValue(getTimerValue(randomWord.length, difficultyFactor) * 1000);
   }, [difficultyFactor, randomWord]);
 
