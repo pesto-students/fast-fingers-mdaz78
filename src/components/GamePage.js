@@ -2,6 +2,7 @@ import React from "react";
 import Header from "./Header";
 import Menu from "./Menu";
 import GameArea from "./GameArea";
+import GameOverArea from "./GameOverArea";
 import "../css/GameContainer.css";
 import { getGameCount, saveGameObj } from "../utils/utils";
 
@@ -20,7 +21,9 @@ const GamePage = ({
 
   if (gameStatus === "STOPPED") {
     saveGameObj(getGameCount() + 1, score);
-    middleSection = null;
+    middleSection = (
+      <GameOverArea score={score} setGameStatus={setGameStatus} />
+    );
   } else {
     middleSection = (
       <GameArea

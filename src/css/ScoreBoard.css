@@ -8,6 +8,7 @@
   border-radius: 15px;
   border: solid 3px var(--light-red);
   padding: 10px;
+  overflow: scroll;
 }
 
 .scoreboard-container .scoreboard-heading {

@@ -1,0 +1,10 @@
+.game-over-container {
+  padding-top: 70px;
+  color: white;
+}
+
+.game-over-container .heading,
+.game-over-container .score {
+  text-align: center;
+  font-size: 70px;
+}
