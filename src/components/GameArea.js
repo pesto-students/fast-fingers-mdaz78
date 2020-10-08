@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Timer from "./Timer";
-import { fetchRandomWordForLevel } from "../utils/utilities";
+import { fetchRandomWordForLevel } from "../utils/dictionary";
+import { getDifficultyFactor, getTimerValue } from "../utils/utils";
 import ScoreBoard from "./ScoreBoard";
 import "../css/GameArea.css";
 
