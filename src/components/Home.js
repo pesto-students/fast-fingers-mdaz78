@@ -3,10 +3,17 @@ import DropDown from "./DropDown";
 import keyboardIcon from "../assets/images/keyboard-icon.svg";
 import playIcon from "../assets/images/icon-awesome-play.svg";
 import "../css/Home.css";
+import {
+  areDictionariesAddedToLocalStorage,
+  loadDictionariesToLocalStorage,
+} from "../utilities";
 
 const Home = ({ userName, setUserName, level, setLevel, setGameStatus }) => {
   const startGame = () => {
     if (userName.length !== 0) {
+      if (!areDictionariesAddedToLocalStorage()) {
+        loadDictionariesToLocalStorage();
+      }
       setGameStatus("PLAYING");
     } else {
       alert("Please enter your name");
